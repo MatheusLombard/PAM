@@ -12,28 +12,28 @@ app.get('/', (req, res) => {
     res.send('Hello Word')
 })
 
-app.get('/enviarCodigo', (req, res) => {
-    client.verify.v2.services("VA4473eace92a4f7f3eadd6171c7bca495")
-        .verifications
-        .create({ to: '+5516991978947', channel: 'sms' })
-        .then(verification => console.log(verification.sid));
+// app.get('/enviarCodigo', (req, res) => {
+//     client.verify.v2.services("VA4473eace92a4f7f3eadd6171c7bca495")
+//         .verifications
+//         .create({ to: '+5516991978947', channel: 'sms' })
+//         .then(verification => console.log(verification.sid));
 
-})
+// })
 
-app.get('/checkCodigo/:codigo', (req, res) => {
-    const codigo = req.params.codigo
-    client.verify.v2.services("VA4473eace92a4f7f3eadd6171c7bca495")
-    .verificationChecks
-    .create({ to: '+5516991978947', code: codigo })
-    .then(verification_check => {
-      if (verification_check.status === 'approved') {
-        res.status(200).json({ message: 'Verification successful!' });
-      } else {
-        res.status(400).json({ message: 'Invalid code' });
-      }
-    })
-    .catch(error => res.status(500).json({ error: error.message }));
-});
+// app.get('/checkCodigo/:codigo', (req, res) => {
+//     const codigo = req.params.codigo
+//     client.verify.v2.services("VA4473eace92a4f7f3eadd6171c7bca495")
+//     .verificationChecks
+//     .create({ to: '+5516991978947', code: codigo })
+//     .then(verification_check => {
+//       if (verification_check.status === 'approved') {
+//         res.status(200).json({ message: 'Verification successful!' });
+//       } else {
+//         res.status(400).json({ message: 'Invalid code' });
+//       }
+//     })
+//     .catch(error => res.status(500).json({ error: error.message }));
+// });
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
