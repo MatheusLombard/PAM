@@ -1,16 +1,31 @@
 require('dotenv').config();
-
 const express = require('express')
 const app = express()
-const port = process.env.PORT
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
 
 app.get('/', (req, res) => {
-    res.send('Hello Word')
+  res.send('Hello World!')
 })
+
+const port = process.env.PORT || 3000
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+
+
+// require('dotenv').config();
+
+// const express = require('express')
+// const app = express()
+// const port = process.env.PORT
+
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = require('twilio')(accountSid, authToken);
+
+// app.get('/', (req, res) => {
+//     res.send('Hello Word')
+// })
 
 // app.get('/enviarCodigo', (req, res) => {
 //     client.verify.v2.services("VA4473eace92a4f7f3eadd6171c7bca495")
@@ -34,7 +49,7 @@ app.get('/', (req, res) => {
 //     })
 //     .catch(error => res.status(500).json({ error: error.message }));
 // });
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`)
+// })
 
