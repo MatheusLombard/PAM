@@ -24,7 +24,7 @@ app.get('/teste', (req, res) => {
      const dois = req.params.id
      const umMaisdois = um + dois
  res.send(umMaisdois) 
-}
+})
  
 app.get('/checkCodigo/:codigo/:id', (req, res) => {
     const id = req.params.id
