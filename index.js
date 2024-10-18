@@ -19,7 +19,7 @@ app.get('/enviarCodigo', (req, res) => {
         .then(verification => console.log(verification.sid));
 })
 
-app.get('/teste', (req, res) => {
+app.get('/teste/:um/:dois', (req, res) => {
      const um = req.params.id
      const dois = req.params.id
      const umMaisdois = um + dois
