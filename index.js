@@ -20,8 +20,8 @@ app.get('/enviarCodigo', (req, res) => {
 })
 
 app.get('/teste/:um/:dois', (req, res) => {
-     const um = req.params.id
-     const dois = req.params.id
+     const um = req.params.um
+     const dois = req.params.dois
      const umMaisdois = um + dois
  res.send(umMaisdois) 
 })
