@@ -18,8 +18,16 @@ app.get('/enviarCodigo', (req, res) => {
         .create({ to: '+5516991978947', channel: 'sms' })
         .then(verification => console.log(verification.sid));
 })
+
+app.get('/teste', (req, res) => {
+     const um = req.params.id
+     const dois = req.params.id
+     const umMaisdois = um + dois
+ res.send(umMaisdois) 
+}
  
-app.get('/checkCodigo/:codigo', (req, res) => {
+app.get('/checkCodigo/:codigo/:id', (req, res) => {
+    const id = req.params.id
     const codigo = req.params.codigo
     client.verify.v2.services("VA4473eace92a4f7f3eadd6171c7bca495")
     .verificationChecks
